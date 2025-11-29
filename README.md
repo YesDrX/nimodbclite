@@ -1,6 +1,7 @@
 # nimodbclite
 
 A lightweight ODBC wrapper library for Nim, providing a simple and type-safe interface for database connectivity across multiple database systems.
+[docs](https://yesdrx.github.io/nimodbclite/)
 
 ## Features
 
