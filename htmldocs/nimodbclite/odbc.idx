@@ -1,0 +1,39 @@
+nimTitle	odbc	nimodbclite/odbc.html	module src/nimodbclite/odbc		0
+nim	SqlChar	nimodbclite/odbc.html#SqlChar	type SqlChar		16
+nim	SqlSChar	nimodbclite/odbc.html#SqlSChar	type SqlSChar		17
+nim	SqlSmallInt	nimodbclite/odbc.html#SqlSmallInt	type SqlSmallInt		18
+nim	SqlUSmallInt	nimodbclite/odbc.html#SqlUSmallInt	type SqlUSmallInt		19
+nim	SqlInt	nimodbclite/odbc.html#SqlInt	type SqlInt		20
+nim	SqlUInt	nimodbclite/odbc.html#SqlUInt	type SqlUInt		21
+nim	SqlReal	nimodbclite/odbc.html#SqlReal	type SqlReal		22
+nim	SqlDouble	nimodbclite/odbc.html#SqlDouble	type SqlDouble		23
+nim	SqlFloat	nimodbclite/odbc.html#SqlFloat	type SqlFloat		24
+nim	SqlHandle	nimodbclite/odbc.html#SqlHandle	type SqlHandle		27
+nim	SqlHEnv	nimodbclite/odbc.html#SqlHEnv	type SqlHEnv		28
+nim	SqlHDbc	nimodbclite/odbc.html#SqlHDbc	type SqlHDbc		29
+nim	SqlHStmt	nimodbclite/odbc.html#SqlHStmt	type SqlHStmt		30
+nim	SqlPointer	nimodbclite/odbc.html#SqlPointer	type SqlPointer		33
+nim	SqlLen	nimodbclite/odbc.html#SqlLen	type SqlLen		38
+nim	SqlULen	nimodbclite/odbc.html#SqlULen	type SqlULen		39
+nim	SqlReturn	nimodbclite/odbc.html#SqlReturn	enum SqlReturn		51
+nim	SqlHandleType	nimodbclite/odbc.html#SqlHandleType	enum SqlHandleType		61
+nim	SqlDriverCompletion	nimodbclite/odbc.html#SqlDriverCompletion	enum SqlDriverCompletion		67
+nim	SqlEnvAttr	nimodbclite/odbc.html#SqlEnvAttr	enum SqlEnvAttr		74
+nim	SqlOdbcVersion	nimodbclite/odbc.html#SqlOdbcVersion	enum SqlOdbcVersion		78
+nim	SqlCType	nimodbclite/odbc.html#SqlCType	enum SqlCType		82
+nim	SqlDataType	nimodbclite/odbc.html#SqlDataType	enum SqlDataType		95
+nim	SQL_NULL_DATA	nimodbclite/odbc.html#SQL_NULL_DATA	const SQL_NULL_DATA		113
+nim	SQL_MAX_MESSAGE_LENGTH	nimodbclite/odbc.html#SQL_MAX_MESSAGE_LENGTH	const SQL_MAX_MESSAGE_LENGTH		115
+nim	SQL_NTS	nimodbclite/odbc.html#SQL_NTS	const SQL_NTS		117
+nim	SQLAllocHandle	nimodbclite/odbc.html#SQLAllocHandle,SqlHandleType,SqlHandle,ptr.SqlHandle	proc SQLAllocHandle(HandleType: SqlHandleType; InputHandle: SqlHandle;\n               OutputHandle: ptr SqlHandle): SqlReturn		123
+nim	SQLFreeHandle	nimodbclite/odbc.html#SQLFreeHandle,SqlHandleType,SqlHandle	proc SQLFreeHandle(HandleType: SqlHandleType; Handle: SqlHandle): SqlReturn		129
+nim	SQLSetEnvAttr	nimodbclite/odbc.html#SQLSetEnvAttr,SqlHEnv,SqlEnvAttr,SqlPointer,SqlInt	proc SQLSetEnvAttr(EnvironmentHandle: SqlHEnv; Attribute: SqlEnvAttr;\n              Value: SqlPointer; StringLength: SqlInt): SqlReturn		134
+nim	SQLDriverConnect	nimodbclite/odbc.html#SQLDriverConnect,SqlHDbc,SqlHandle,ptr.SqlChar,SqlSmallInt,ptr.SqlChar,SqlSmallInt,ptr.SqlSmallInt,SqlDriverCompletion	proc SQLDriverConnect(ConnectionHandle: SqlHDbc; WindowHandle: SqlHandle;\n                 InConnectionString: ptr SqlChar; StringLength1: SqlSmallInt;\n                 OutConnectionString: ptr SqlChar; BufferLength: SqlSmallInt;\n                 StringLength2Ptr: ptr SqlSmallInt;\n                 DriverCompletion: SqlDriverCompletion): SqlReturn		141
+nim	SQLDisconnect	nimodbclite/odbc.html#SQLDisconnect,SqlHDbc	proc SQLDisconnect(ConnectionHandle: SqlHDbc): SqlReturn		152
+nim	SQLExecDirect	nimodbclite/odbc.html#SQLExecDirect,SqlHStmt,ptr.SqlChar,SqlInt	proc SQLExecDirect(StatementHandle: SqlHStmt; StatementText: ptr SqlChar;\n              TextLength: SqlInt): SqlReturn		156
+nim	SQLNumResultCols	nimodbclite/odbc.html#SQLNumResultCols,SqlHStmt,ptr.SqlSmallInt	proc SQLNumResultCols(StatementHandle: SqlHStmt; ColumnCount: ptr SqlSmallInt): SqlReturn		162
+nim	SQLRowCount	nimodbclite/odbc.html#SQLRowCount,SqlHStmt,ptr.SqlLen	proc SQLRowCount(StatementHandle: SqlHStmt; RowCount: ptr SqlLen): SqlReturn		167
+nim	SQLDescribeCol	nimodbclite/odbc.html#SQLDescribeCol,SqlHStmt,SqlUSmallInt,ptr.SqlChar,SqlSmallInt,ptr.SqlSmallInt,ptr.SqlSmallInt,ptr.SqlULen,ptr.SqlSmallInt,ptr.SqlSmallInt	proc SQLDescribeCol(StatementHandle: SqlHStmt; ColumnNumber: SqlUSmallInt;\n               ColumnName: ptr SqlChar; BufferLength: SqlSmallInt;\n               NameLength: ptr SqlSmallInt; DataType: ptr SqlSmallInt;\n               ColumnSize: ptr SqlULen; DecimalDigits: ptr SqlSmallInt;\n               Nullable: ptr SqlSmallInt): SqlReturn		172
+nim	SQLFetch	nimodbclite/odbc.html#SQLFetch,SqlHStmt	proc SQLFetch(StatementHandle: SqlHStmt): SqlReturn		184
+nim	SQLGetData	nimodbclite/odbc.html#SQLGetData,SqlHStmt,SqlUSmallInt,SqlCType,SqlPointer,SqlLen,ptr.SqlLen	proc SQLGetData(StatementHandle: SqlHStmt; ColumnNumber: SqlUSmallInt;\n           TargetType: SqlCType; TargetValue: SqlPointer; BufferLength: SqlLen;\n           StrLen_or_Ind: ptr SqlLen): SqlReturn		188
+nim	SQLGetDiagRec	nimodbclite/odbc.html#SQLGetDiagRec,SqlHandleType,SqlHandle,SqlSmallInt,ptr.SqlChar,ptr.SqlInt,ptr.SqlChar,SqlSmallInt,ptr.SqlSmallInt	proc SQLGetDiagRec(HandleType: SqlHandleType; Handle: SqlHandle;\n              RecNumber: SqlSmallInt; Sqlstate: ptr SqlChar;\n              NativeError: ptr SqlInt; MessageText: ptr SqlChar;\n              BufferLength: SqlSmallInt; TextLength: ptr SqlSmallInt): SqlReturn		197
