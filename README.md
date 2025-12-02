@@ -103,6 +103,44 @@ let db = newOdbcConnection(
 let db = newOdbcConnection("DRIVER={SQLite3};Database=mydb.db")
 ```
 
+### Utility Functions
+
+#### `listOdbcDrivers(): seq[OdbcDriverInfo]`
+
+Lists all installed ODBC drivers on the system.
+
+**Returns:** A sequence of `OdbcDriverInfo` objects, each containing:
+  - `name`: The driver name (e.g., "PostgreSQL Unicode", "SQLite3")
+  - `attributes`: A sequence of key-value tuples with driver attributes (file paths, setup DLL, etc.)
+
+**Raises:** `OdbcException` if driver enumeration fails
+
+**Example:**
+```nim
+# List all installed ODBC drivers
+let drivers = listOdbcDrivers()
+
+for driver in drivers:
+  echo "Driver: ", driver.name
+  for attr in driver.attributes:
+    echo "  ", attr.key, " = ", attr.value
+```
+
+**Output Example:**
+```
+Driver: SQLite3
+  Description = SQLite3 ODBC Driver
+  Driver = libsqlite3odbc.so
+  Setup = libsqlite3odbc.so
+  UsageCount = 1
+
+Driver: MariaDB Unicode
+  Driver = libmaodbc.so
+  Description = MariaDB Connector/ODBC(Unicode)
+  Threading = 0
+  UsageCount = 1
+```
+
 ### Query Execution
 
 #### `exec(conn: OdbcConnection, query: string): int64`
