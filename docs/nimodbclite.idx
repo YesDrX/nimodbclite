@@ -1,10 +1,12 @@
 nimTitle	nimodbclite	nimodbclite.html	module src/nimodbclite		0
-nim	OdbcConnectionObj	nimodbclite.html#OdbcConnectionObj	object OdbcConnectionObj		13
-nim	OdbcConnection	nimodbclite.html#OdbcConnection	type OdbcConnection		18
-nim	OdbcException	nimodbclite.html#OdbcException	object OdbcException		20
-nim	SqlColumn	nimodbclite.html#SqlColumn	object SqlColumn		24
-nim	ResultSet	nimodbclite.html#ResultSet	object ResultSet		29
-nim	newOdbcConnection	nimodbclite.html#newOdbcConnection,string	proc newOdbcConnection(connectionString: string): OdbcConnection		89
-nim	exec	nimodbclite.html#exec,OdbcConnection,string	proc exec(conn: OdbcConnection; query: string): int64		167
-nim	query	nimodbclite.html#query,OdbcConnection,string	proc query(conn: OdbcConnection; query: string): ResultSet		225
-nim	queryJson	nimodbclite.html#queryJson,OdbcConnection,string	proc queryJson(conn: OdbcConnection; query: string): seq[JsonNode]		278
+nim	OdbcConnectionObj	nimodbclite.html#OdbcConnectionObj	object OdbcConnectionObj		14
+nim	OdbcConnection	nimodbclite.html#OdbcConnection	type OdbcConnection		19
+nim	OdbcException	nimodbclite.html#OdbcException	object OdbcException		21
+nim	SqlColumn	nimodbclite.html#SqlColumn	object SqlColumn		25
+nim	ResultSet	nimodbclite.html#ResultSet	object ResultSet		30
+nim	OdbcDriverInfo	nimodbclite.html#OdbcDriverInfo	object OdbcDriverInfo		34
+nim	newOdbcConnection	nimodbclite.html#newOdbcConnection,string	proc newOdbcConnection(connectionString: string): OdbcConnection		94
+nim	exec	nimodbclite.html#exec,OdbcConnection,string	proc exec(conn: OdbcConnection; query: string): int64		172
+nim	query	nimodbclite.html#query,OdbcConnection,string	proc query(conn: OdbcConnection; query: string): ResultSet		230
+nim	queryJson	nimodbclite.html#queryJson,OdbcConnection,string	proc queryJson(conn: OdbcConnection; query: string): seq[JsonNode]		283
+nim	listOdbcDrivers	nimodbclite.html#listOdbcDrivers	proc listOdbcDrivers(): seq[OdbcDriverInfo]		353

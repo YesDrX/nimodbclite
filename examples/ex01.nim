@@ -8,6 +8,8 @@ proc main() =
   # Linux Example: "DRIVER={PostgreSQL};SERVER=localhost;PORT=5432;DATABASE=mydb;UID=postgres;PWD=password"
   # Linux mysql using mariadb: "DRIVER={MariaDB Unicode};SERVER=localhost;PORT=3306;DATABASE=test;UID=test;PWD=test"
   # let connStr = "DRIVER={SQLite3};Database=test.db" 
+  echo listOdbcDrivers()
+
   let connStr = "DRIVER={MariaDB Unicode};SERVER=localhost;PORT=3306;DATABASE=test;UID=test;PWD=test"
 
   try:

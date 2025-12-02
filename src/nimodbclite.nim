@@ -1,6 +1,7 @@
 # nimodbc.nim
 import nimodbclite/odbc
 import json
+import strutils
 
 # -----------------------------------------------------------------------------
 # Types
@@ -29,6 +30,10 @@ type
   ResultSet* = object
     columns*: seq[SqlColumn]
     rows*: seq[seq[string]]
+
+  OdbcDriverInfo* = object
+    name*: string
+    attributes*: seq[tuple[key: string, value: string]]
 
 proc `=destroy`(conn: var OdbcConnectionObj) =
   if conn.connected:
@@ -344,3 +349,93 @@ proc queryJson*(conn: OdbcConnection, query: string): seq[JsonNode] =
             rowJson[col.name] = newJString(buffer)
 
       result.add(rowJson)
+
+proc listOdbcDrivers*(): seq[OdbcDriverInfo] =
+  ## Lists all installed ODBC drivers on the system.
+  ##
+  ## This proc enumerates all available ODBC drivers by using the ODBC Driver Manager.
+  ## It returns information about each driver including its name and attributes 
+  ## (such as file paths, setup DLL, etc.).
+  ##
+  ## Returns:
+  ##   A sequence of OdbcDriverInfo objects, each containing:
+  ##     - name: The driver name (e.g., "PostgreSQL Unicode", "SQLite3")
+  ##     - attributes: A sequence of key-value tuples with driver attributes
+  ##
+  ## Raises:
+  ##   OdbcException if the driver enumeration fails.
+  ##
+  ## Example:
+  ##   ```nim
+  ##   let drivers = listOdbcDrivers()
+  ##   for driver in drivers:
+  ##     echo "Driver: ", driver.name
+  ##     for attr in driver.attributes:
+  ##       echo "  ", attr.key, " = ", attr.value
+  ##   ```
+  result = @[]
+  
+  var env: SqlHEnv
+  var ret = SQLAllocHandle(SQL_HANDLE_ENV, nil, addr env)
+  if ret != SQL_SUCCESS and ret != SQL_SUCCESS_WITH_INFO:
+    raise newException(OdbcException, "Failed to allocate environment handle")
+  
+  defer:
+    discard SQLFreeHandle(SQL_HANDLE_ENV, env)
+  
+  ret = SQLSetEnvAttr(env, SQL_ATTR_ODBC_VERSION, cast[SqlPointer](SQL_OV_ODBC3), 0)
+  checkError(ret, SQL_HANDLE_ENV, env, "Failed to set ODBC version")
+  
+  var
+    driverDesc = newString(256)
+    descLen: SqlSmallInt
+    driverAttrs = newString(2048)
+    attrsLen: SqlSmallInt
+    direction = SQL_FETCH_FIRST.SqlUSmallInt
+  
+  while true:
+    ret = SQLDrivers(
+      env,
+      direction,
+      cast[ptr SqlChar](driverDesc.cstring),
+      256.SqlSmallInt,
+      addr descLen,
+      cast[ptr SqlChar](driverAttrs.cstring),
+      2048.SqlSmallInt,
+      addr attrsLen
+    )
+    
+    if ret == SQL_NO_DATA:
+      break
+    
+    checkError(ret, SQL_HANDLE_ENV, env, "Failed to fetch driver information")
+    
+    # Set proper string lengths
+    driverDesc.setLen(descLen)
+    driverAttrs.setLen(attrsLen)
+    
+    # Parse attributes (null-separated key=value pairs, double-null terminated)
+    var attrs: seq[tuple[key: string, value: string]] = @[]
+    var i = 0
+    while i < driverAttrs.len:
+      var attrStr = ""
+      while i < driverAttrs.len and driverAttrs[i] != '\0':
+        attrStr.add(driverAttrs[i])
+        inc(i)
+      
+      if attrStr.len > 0:
+        let parts = attrStr.split('=', maxsplit = 1)
+        if parts.len == 2:
+          attrs.add((key: parts[0], value: parts[1]))
+        else:
+          attrs.add((key: attrStr, value: ""))
+      
+      inc(i)  # Skip the null terminator
+    
+    result.add(OdbcDriverInfo(name: driverDesc, attributes: attrs))
+    
+    # Reset buffers for next iteration
+    driverDesc = newString(256)
+    driverAttrs = newString(2048)
+    direction = SQL_FETCH_NEXT.SqlUSmallInt
+

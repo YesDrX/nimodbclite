@@ -60,6 +60,9 @@
     <ul class="simple simple-toc-section">
       <li><a class="reference" href="#OdbcConnection" title="OdbcConnection = ref OdbcConnectionObj">OdbcConnection</a></li>
 <li><a class="reference" href="#OdbcConnectionObj" title="OdbcConnectionObj = object">OdbcConnectionObj</a></li>
+<li><a class="reference" href="#OdbcDriverInfo" title="OdbcDriverInfo = object
+  name*: string
+  attributes*: seq[tuple[key: string, value: string]]">OdbcDriverInfo</a></li>
 <li><a class="reference" href="#OdbcException" title="OdbcException = object of CatchableError
   sqlState*: string
   nativeError*: int">OdbcException</a></li>
@@ -80,6 +83,10 @@
     <ul class="simple simple-toc-section">
       <ul class="simple nested-toc-section">exec
   <li><a class="reference" href="#exec%2COdbcConnection%2Cstring" title="exec(conn: OdbcConnection; query: string): int64">exec(conn: OdbcConnection; query: string): int64</a></li>
+
+</ul>
+<ul class="simple nested-toc-section">listOdbcDrivers
+  <li><a class="reference" href="#listOdbcDrivers" title="listOdbcDrivers(): seq[OdbcDriverInfo]">listOdbcDrivers(): seq[OdbcDriverInfo]</a></li>
 
 </ul>
 <ul class="simple nested-toc-section">newOdbcConnection
@@ -126,8 +133,8 @@
   <dd>
     
     
-    <a href="https://github.com/yesdrx/nimodbclite/tree/master/src/nimodbclite.nim#L18" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/yesdrx/nimodbclite/edit/devel/src/nimodbclite.nim#L18" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/yesdrx/nimodbclite/tree/master/src/nimodbclite.nim#L19" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/yesdrx/nimodbclite/edit/devel/src/nimodbclite.nim#L19" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -136,8 +143,20 @@
   <dd>
     
     
-    <a href="https://github.com/yesdrx/nimodbclite/tree/master/src/nimodbclite.nim#L13" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/yesdrx/nimodbclite/edit/devel/src/nimodbclite.nim#L13" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/yesdrx/nimodbclite/tree/master/src/nimodbclite.nim#L14" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/yesdrx/nimodbclite/edit/devel/src/nimodbclite.nim#L14" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+
+  </dd>
+</div>
+<div id="OdbcDriverInfo">
+  <dt><pre><a href="nimodbclite.html#OdbcDriverInfo"><span class="Identifier">OdbcDriverInfo</span></a> <span class="Other">=</span> <span class="Keyword">object</span>
+  <span class="Identifier">name</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">string</span>
+  <span class="Identifier">attributes</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Keyword">tuple</span><span class="Other">[</span><span class="Identifier">key</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">,</span> <span class="Identifier">value</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">]</span><span class="Other">]</span></pre></dt>
+  <dd>
+    
+    
+    <a href="https://github.com/yesdrx/nimodbclite/tree/master/src/nimodbclite.nim#L34" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/yesdrx/nimodbclite/edit/devel/src/nimodbclite.nim#L34" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -148,8 +167,8 @@
   <dd>
     
     
-    <a href="https://github.com/yesdrx/nimodbclite/tree/master/src/nimodbclite.nim#L20" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/yesdrx/nimodbclite/edit/devel/src/nimodbclite.nim#L20" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/yesdrx/nimodbclite/tree/master/src/nimodbclite.nim#L21" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/yesdrx/nimodbclite/edit/devel/src/nimodbclite.nim#L21" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -160,8 +179,8 @@
   <dd>
     
     
-    <a href="https://github.com/yesdrx/nimodbclite/tree/master/src/nimodbclite.nim#L29" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/yesdrx/nimodbclite/edit/devel/src/nimodbclite.nim#L29" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/yesdrx/nimodbclite/tree/master/src/nimodbclite.nim#L30" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/yesdrx/nimodbclite/edit/devel/src/nimodbclite.nim#L30" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -173,8 +192,8 @@
   <dd>
     
     
-    <a href="https://github.com/yesdrx/nimodbclite/tree/master/src/nimodbclite.nim#L24" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/yesdrx/nimodbclite/edit/devel/src/nimodbclite.nim#L24" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/yesdrx/nimodbclite/tree/master/src/nimodbclite.nim#L25" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/yesdrx/nimodbclite/edit/devel/src/nimodbclite.nim#L25" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -202,8 +221,34 @@
 <p><pre class="listing"><span class="Keyword">let</span> <span class="Identifier">rowsAffected</span> <span class="Operator">=</span> <span class="Identifier">db</span><span class="Operator">.</span><span class="Identifier">exec</span><span class="Punctuation">(</span><span class="StringLit">&quot;INSERT INTO users (name, age) VALUES ('Alice', 30)&quot;</span><span class="Punctuation">)</span>
 <span class="Identifier">echo</span> <span class="StringLit">&quot;Inserted &quot;</span><span class="Punctuation">,</span> <span class="Identifier">rowsAffected</span><span class="Punctuation">,</span> <span class="StringLit">&quot; row(s)&quot;</span></pre></p>
 
-    <a href="https://github.com/yesdrx/nimodbclite/tree/master/src/nimodbclite.nim#L167" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/yesdrx/nimodbclite/edit/devel/src/nimodbclite.nim#L167" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/yesdrx/nimodbclite/tree/master/src/nimodbclite.nim#L172" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/yesdrx/nimodbclite/edit/devel/src/nimodbclite.nim#L172" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+
+  </dd>
+</div>
+
+</div>
+<div id="listOdbcDrivers-procs-all">
+  <div id="listOdbcDrivers">
+  <dt><pre><span class="Keyword">proc</span> <a href="#listOdbcDrivers"><span class="Identifier">listOdbcDrivers</span></a><span class="Other">(</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><a href="nimodbclite.html#OdbcDriverInfo"><span class="Identifier">OdbcDriverInfo</span></a><span class="Other">]</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">OdbcException</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span>
+    <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+  <dd>
+    
+    <p>Lists all installed ODBC drivers on the system.</p>
+<p>This proc enumerates all available ODBC drivers by using the ODBC Driver Manager. It returns information about each driver including its name and attributes (such as file paths, setup DLL, etc.).</p>
+<p>Returns: A sequence of OdbcDriverInfo objects, each containing:</p>
+<pre>- name: The driver name (e.g., &quot;PostgreSQL Unicode&quot;, &quot;SQLite3&quot;)
+- attributes: A sequence of key-value tuples with driver attributes</pre>
+<p>Raises: OdbcException if the driver enumeration fails.</p>
+<p>Example:</p>
+<p><pre class="listing"><span class="Keyword">let</span> <span class="Identifier">drivers</span> <span class="Operator">=</span> <span class="Identifier">listOdbcDrivers</span><span class="Punctuation">(</span><span class="Punctuation">)</span>
+<span class="Keyword">for</span> <span class="Identifier">driver</span> <span class="Keyword">in</span> <span class="Identifier">drivers</span><span class="Punctuation">:</span>
+  <span class="Identifier">echo</span> <span class="StringLit">&quot;Driver: &quot;</span><span class="Punctuation">,</span> <span class="Identifier">driver</span><span class="Operator">.</span><span class="Identifier">name</span>
+  <span class="Keyword">for</span> <span class="Identifier">attr</span> <span class="Keyword">in</span> <span class="Identifier">driver</span><span class="Operator">.</span><span class="Identifier">attributes</span><span class="Punctuation">:</span>
+    <span class="Identifier">echo</span> <span class="StringLit">&quot;  &quot;</span><span class="Punctuation">,</span> <span class="Identifier">attr</span><span class="Operator">.</span><span class="Identifier">key</span><span class="Punctuation">,</span> <span class="StringLit">&quot; = &quot;</span><span class="Punctuation">,</span> <span class="Identifier">attr</span><span class="Operator">.</span><span class="Identifier">value</span></pre></p>
+
+    <a href="https://github.com/yesdrx/nimodbclite/tree/master/src/nimodbclite.nim#L353" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/yesdrx/nimodbclite/edit/devel/src/nimodbclite.nim#L353" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -234,8 +279,8 @@
 </li>
 </ul>
 
-    <a href="https://github.com/yesdrx/nimodbclite/tree/master/src/nimodbclite.nim#L89" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/yesdrx/nimodbclite/edit/devel/src/nimodbclite.nim#L89" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/yesdrx/nimodbclite/tree/master/src/nimodbclite.nim#L94" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/yesdrx/nimodbclite/edit/devel/src/nimodbclite.nim#L94" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -264,8 +309,8 @@
 <span class="Keyword">for</span> <span class="Identifier">row</span> <span class="Keyword">in</span> <span class="Identifier">results</span><span class="Operator">.</span><span class="Identifier">rows</span><span class="Punctuation">:</span>
   <span class="Identifier">echo</span> <span class="Identifier">row</span>  <span class="Comment"># Each row is a seq[string]</span></pre></p>
 
-    <a href="https://github.com/yesdrx/nimodbclite/tree/master/src/nimodbclite.nim#L225" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/yesdrx/nimodbclite/edit/devel/src/nimodbclite.nim#L225" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/yesdrx/nimodbclite/tree/master/src/nimodbclite.nim#L230" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/yesdrx/nimodbclite/edit/devel/src/nimodbclite.nim#L230" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -296,8 +341,8 @@
   <span class="Identifier">echo</span> <span class="Identifier">row</span><span class="Operator">.</span><span class="Identifier">pretty</span>  <span class="Comment"># Pretty-print the JSON</span>
 <span class="Comment"># Output: {&quot;id&quot;: 1, &quot;name&quot;: &quot;Alice&quot;, &quot;score&quot;: 95.5}</span></pre></p>
 
-    <a href="https://github.com/yesdrx/nimodbclite/tree/master/src/nimodbclite.nim#L278" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/yesdrx/nimodbclite/edit/devel/src/nimodbclite.nim#L278" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/yesdrx/nimodbclite/tree/master/src/nimodbclite.nim#L283" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/yesdrx/nimodbclite/edit/devel/src/nimodbclite.nim#L283" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -319,7 +364,7 @@
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2025-11-29 15:12:07 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2025-12-02 14:15:23 UTC</small>
       </div>
     </div>
   </div>

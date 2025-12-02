@@ -115,6 +115,9 @@ const
   SQL_MAX_MESSAGE_LENGTH*   = 512
   # Null Terminated String marker
   SQL_NTS*                  = -3
+  # Fetch Direction for SQLDrivers
+  SQL_FETCH_FIRST*          = 2
+  SQL_FETCH_NEXT*           = 1
 
 # -----------------------------------------------------------------------------
 # FFI Procedures
@@ -203,4 +206,15 @@ proc SQLGetDiagRec*(
   MessageText: ptr SqlChar, 
   BufferLength: SqlSmallInt, 
   TextLength: ptr SqlSmallInt
+): SqlReturn {.odbcApi.}
+
+proc SQLDrivers*(
+  EnvironmentHandle: SqlHEnv,
+  Direction: SqlUSmallInt,
+  DriverDescription: ptr SqlChar,
+  BufferLength1: SqlSmallInt,
+  DescriptionLengthPtr: ptr SqlSmallInt,
+  DriverAttributes: ptr SqlChar,
+  BufferLength2: SqlSmallInt,
+  AttributesLengthPtr: ptr SqlSmallInt
 ): SqlReturn {.odbcApi.}
