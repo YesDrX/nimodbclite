@@ -267,6 +267,13 @@ type ResultSet* = object
   rows*: seq[seq[string]]     # Row data (all as strings)
 ```
 
+### `OdbcDriverInfo`
+```nim
+type OdbcDriverInfo* = object
+  name*: string                                       # Driver name
+  attributes*: seq[tuple[key: string, value: string]] # Driver attributes
+```
+
 ### `SqlDataType` (Enum)
 
 Available SQL types (re-exported from the underlying ODBC bindings):
